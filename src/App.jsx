@@ -3,7 +3,7 @@ import './App.css'
 
 function App() {
   const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");   // fixed typo
+  const [lastName, setLastName] = useState("");
   const [fullName, setFullName] = useState("");
 
   function handleInput(e) {
@@ -37,6 +37,10 @@ function App() {
         </div>
       </form>
 
+      {/* Static heading for initial render */}
+      <h2>Full Name Display</h2>
+
+      {/* Show full name only after submission */}
       {fullName && <p>{fullName}</p>}
     </>
   );
