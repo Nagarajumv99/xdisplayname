@@ -1,29 +1,49 @@
-import { useState } from 'react'
-import './App.css'
+import { useState } from "react";
+import "./App.css";
 
 function App() {
   const [firstName, setFirstName] = useState("");
-  const [lasttName, setlastName] = useState("");
+  const [lastName, setLastName] = useState("");
   const [fullName, setFullName] = useState("");
-  function handleInput(e){
+
+  function handleInput(e) {
     e.preventDefault();
-    if(firstName !== "" && lasttName !== ""){
-      setFullName(`Full Name: ${firstName} ${lasttName}`);
+    if (firstName !== "" && lastName !== "") {
+      setFullName(`Full Name: ${firstName} ${lastName}`);
     }
   }
 
   return (
-     
-
     <>
+      <h1>Full Name Display</h1>
+
       <form onSubmit={handleInput}>
-        <div>First Name: <input type="text" onChange={(e) => setFirstName(e.target.value)} required/></div>
-        <div>Last Name: <input type="text" onChange={(e) => setlastName(e.target.value)} required/></div>
-        <div><button type="submit">submit</button></div>
+        <div>
+          First Name:
+          <input
+            type="text"
+            onChange={(e) => setFirstName(e.target.value)}
+            required
+          />
+        </div>
+
+        <div>
+          Last Name:
+          <input
+            type="text"
+            onChange={(e) => setLastName(e.target.value)}
+            required
+          />
+        </div>
+
+        <div>
+          <button type="submit">Submit</button>
+        </div>
       </form>
-      {fullName&&<p>{fullName}</p>}
+
+      {fullName && <p>{fullName}</p>}
     </>
-  )
+  );
 }
 
-export default App
+export default App;
