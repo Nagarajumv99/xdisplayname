@@ -9,7 +9,9 @@ function App() {
   function handleInput(e) {
     e.preventDefault();
     if (firstName !== "" && lastName !== "") {
-      setFullName(`Full Name: ${firstName} ${lastName}`);
+      setFullName(`${firstName} ${lastName}`); // no "Full Name:" prefix
+    } else {
+      setFullName(""); // clear if incomplete
     }
   }
 
@@ -37,10 +39,10 @@ function App() {
         </div>
       </form>
 
-      {/* Static heading for initial render */}
+      {/* Static heading always present */}
       <h2>Full Name Display</h2>
 
-      {/* Show full name only after submission */}
+      {/* Show full name only if both fields filled */}
       {fullName && <p>{fullName}</p>}
     </>
   );
